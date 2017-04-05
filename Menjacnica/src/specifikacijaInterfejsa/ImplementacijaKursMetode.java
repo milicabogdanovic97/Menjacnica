@@ -25,6 +25,7 @@ public class ImplementacijaKursMetode implements KursMetode {
 				throw new RuntimeException("Kurs vec postoji.");
 			}
 		}
+		
 		kursnaLista.add(novaValuta);
 	}
 
