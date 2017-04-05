@@ -8,6 +8,7 @@ import menjacnica.Valuta;
 public class ImplementacijaKursMetode implements KursMetode {
 
 	LinkedList<Valuta> kursnaLista = new LinkedList<Valuta>();
+	
 	@Override
 	public void dodajKurs(String naziv, String skraceniNaziv, GregorianCalendar datum, double kupovniKurs,
 			double prodajniKurs, double srednjiKurs) {
@@ -30,8 +31,7 @@ public class ImplementacijaKursMetode implements KursMetode {
 	@Override
 	public void obrisiKurs(String naziv, GregorianCalendar datum) {
 		for (int i = 0; i < kursnaLista.size(); i++) {
-			Valuta v = kursnaLista.get(i);
-			if(v.getNaziv().equals(naziv) && v.getDatumUnosaKursa().getTime() == datum.getTime()){
+			if(kursnaLista.get(i).getNaziv().equals(naziv) && kursnaLista.get(i).getDatumUnosaKursa() == datum){
 				kursnaLista.remove(i);
 				return;
 			}
@@ -43,10 +43,9 @@ public class ImplementacijaKursMetode implements KursMetode {
 		for (int i = 0; i < kursnaLista.size(); i++) {
 			Valuta v = kursnaLista.get(i);
 			if(v.getNaziv().equals(naziv) && v.getDatumUnosaKursa().getTime() == datum.getTime()){
-				return kursnaLista.get(i);
-			}else throw new RuntimeException();
+				return v;
+			}
 		}
 		return null;
 	}
-
 }
