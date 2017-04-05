@@ -16,37 +16,49 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+		if(!naziv.isEmpty() && naziv != null)
+			this.naziv = naziv;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		this.skraceniNaziv = skraceniNaziv;
+		if(!skraceniNaziv.isEmpty() && skraceniNaziv != null)
+			this.skraceniNaziv = skraceniNaziv;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	public GregorianCalendar getDatumUnosaKursa() {
 		return datumUnosaKursa;
 	}
 	public void setDatumUnosaKursa(GregorianCalendar datumUnosaKursa) {
-		this.datumUnosaKursa = datumUnosaKursa;
+		if(datumUnosaKursa != null)
+			this.datumUnosaKursa = datumUnosaKursa;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	public double getProdajniKurs() {
 		return prodajniKurs;
 	}
 	public void setProdajniKurs(double prodajniKurs) {
-		this.prodajniKurs = prodajniKurs;
+		if(prodajniKurs > 0)
+			this.prodajniKurs = prodajniKurs;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	public double getKupovniKurs() {
 		return kupovniKurs;
 	}
 	public void setKupovniKurs(double kupovniKurs) {
-		this.kupovniKurs = kupovniKurs;
+		if(kupovniKurs > 0)
+			this.kupovniKurs = kupovniKurs;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	public double getSrednjiKurs() {
 		return srednjiKurs;
 	}
 	public void setSrednjiKurs(double srednjiKurs) {
-		this.srednjiKurs = srednjiKurs;
+		if(srednjiKurs > 0)
+			this.srednjiKurs = srednjiKurs;
+		else throw new RuntimeException("Pogresan unos.");
 	}
 	
 	@Override
